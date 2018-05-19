@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!--引入配置文件  -->
+	<properties resource="generatorConfig.properties"/>
+	
+	<!--需要引入本地数据库的驱动jar包  -->
+	<classPathEntry 
+	location="E:\WorkJarSource\connDriver\mysql-connector-java-5.1.10-bin.jar" />
+	
+	<context id="tarena">
+		
+		<!--是否不生成注释 true
+			targetProject:为哪个项目生成文件
+			modeltargetPackage: pojo生成的包路径
+			sqltargetPackage:   Mapper映射文件的包路径
+			clienttargetPackage: Mapper接口文件的包路径
+		  -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="${suppressAllComments}"/>
+		</commentGenerator>
+		<jdbcConnection driverClass="${driverClass}" connectionURL="${url}" userId="${username}" password="${password}" />
+	
+		<javaModelGenerator targetPackage="${modeltargetPackage}" targetProject="${targetProject}" />
+		
+		<sqlMapGenerator targetPackage="${sqltargetPackage}" targetProject="${targetProject}" />	
+		<javaClientGenerator targetPackage="${clienttargetPackage}" targetProject="${targetProject}" type="XMLMAPPER" /> 
+
+		<!--添加自动生成的表名  -->
+		<table schema="" tableName="student_section" />
+		
+		<!--����ж��ű�д���table��ǩ-->
+		<!--
+			<table schema="" tableName="order_c" />
+			<table schema="" tableName="order_c" />
+		-->
+		
+	</context>
+</generatorConfiguration>
